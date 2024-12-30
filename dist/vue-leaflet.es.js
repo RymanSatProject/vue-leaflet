@@ -1,101 +1,101 @@
-import { watch as He, ref as c, provide as A, inject as O, onUnmounted as pe, h as U, onBeforeUnmount as R, defineComponent as S, onMounted as _, markRaw as j, nextTick as g, render as mt, reactive as vt, computed as oe } from "vue";
-const ce = (e, o) => {
-  for (const t of Object.keys(o))
-    e.on(t, o[t]);
-}, ye = (e) => {
-  for (const o of Object.keys(e)) {
-    const t = e[o];
-    t && k(t.cancel) && t.cancel();
+import { watch as We, ref as c, provide as A, inject as O, onUnmounted as ye, h as U, onBeforeUnmount as R, defineComponent as S, onMounted as _, markRaw as j, nextTick as g, render as vt, reactive as bt, computed as oe } from "vue";
+const de = (t, o) => {
+  for (const e of Object.keys(o))
+    t.on(e, o[e]);
+}, me = (t) => {
+  for (const o of Object.keys(t)) {
+    const e = t[o];
+    e && k(e.cancel) && e.cancel();
   }
-}, Je = (e) => !e || typeof e.charAt != "function" ? e : e.charAt(0).toUpperCase() + e.slice(1), k = (e) => typeof e == "function", L = (e, o, t) => {
-  for (const n in t) {
-    const s = "set" + Je(n);
-    e[s] ? He(
-      () => t[n],
+}, qe = (t) => !t || typeof t.charAt != "function" ? t : t.charAt(0).toUpperCase() + t.slice(1), k = (t) => typeof t == "function", L = (t, o, e) => {
+  for (const n in e) {
+    const s = "set" + qe(n);
+    t[s] ? We(
+      () => e[n],
       (r, l) => {
-        e[s](r, l);
+        t[s](r, l);
       }
-    ) : o[s] && He(
-      () => t[n],
+    ) : o[s] && We(
+      () => e[n],
       (r) => {
         o[s](r);
       }
     );
   }
-}, f = (e, o, t = {}) => {
-  const n = { ...t };
-  for (const s in e) {
-    const r = o[s], l = e[s];
+}, f = (t, o, e = {}) => {
+  const n = { ...e };
+  for (const s in t) {
+    const r = o[s], l = t[s];
     r && (r && r.custom === !0 || l !== void 0 && (n[s] = l));
   }
   return n;
-}, T = (e) => {
-  const o = {}, t = {};
-  for (const n in e)
+}, T = (t) => {
+  const o = {}, e = {};
+  for (const n in t)
     if (n.startsWith("on") && !n.startsWith("onUpdate") && n !== "onReady") {
       const s = n.slice(2).toLocaleLowerCase();
-      o[s] = e[n];
+      o[s] = t[n];
     } else
-      t[n] = e[n];
-  return { listeners: o, attrs: t };
-}, qe = async (e) => {
+      e[n] = t[n];
+  return { listeners: o, attrs: e };
+}, Ke = async (t) => {
   const o = await Promise.all([
     import("leaflet/dist/images/marker-icon-2x.png"),
     import("leaflet/dist/images/marker-icon.png"),
     import("leaflet/dist/images/marker-shadow.png")
   ]);
-  delete e.Default.prototype._getIconUrl, e.Default.mergeOptions({
+  delete t.Default.prototype._getIconUrl, t.Default.mergeOptions({
     iconRetinaUrl: o[0].default,
     iconUrl: o[1].default,
     shadowUrl: o[2].default
   });
-}, Y = (e) => {
+}, X = (t) => {
   const o = c(
-    (...n) => console.warn(`Method ${e} has been invoked without being replaced`)
-  ), t = (...n) => o.value(...n);
-  return t.wrapped = o, A(e, t), t;
-}, V = (e, o) => e.wrapped.value = o, b = typeof self == "object" && self.self === self && self || typeof global == "object" && global.global === global && global || globalThis, m = (e) => {
-  const o = O(e);
+    (...n) => console.warn(`Method ${t} has been invoked without being replaced`)
+  ), e = (...n) => o.value(...n);
+  return e.wrapped = o, A(t, e), e;
+}, Y = (t, o) => t.wrapped.value = o, v = typeof self == "object" && self.self === self && self || typeof global == "object" && global.global === global && global || globalThis, y = (t) => {
+  const o = O(t);
   if (o === void 0)
     throw new Error(
-      `Attempt to inject ${e.description} before it was provided.`
+      `Attempt to inject ${t.description} before it was provided.`
     );
   return o;
-}, Kt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Qt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  WINDOW_OR_GLOBAL: b,
-  assertInject: m,
-  bindEventHandlers: ce,
-  cancelDebounces: ye,
-  capitalizeFirstLetter: Je,
+  WINDOW_OR_GLOBAL: v,
+  assertInject: y,
+  bindEventHandlers: de,
+  cancelDebounces: me,
+  capitalizeFirstLetter: qe,
   isFunction: k,
   propsBinder: L,
   propsToLeafletOptions: f,
-  provideLeafletWrapper: Y,
+  provideLeafletWrapper: X,
   remapEvents: T,
-  resetWebpackIcon: qe,
-  updateLeafletWrapper: V
+  resetWebpackIcon: Ke,
+  updateLeafletWrapper: Y
 }, Symbol.toStringTag, { value: "Module" })), h = Symbol(
   "useGlobalLeaflet"
 ), M = Symbol("addLayer"), ee = Symbol("removeLayer"), H = Symbol(
   "registerControl"
-), me = Symbol(
-  "registerLayerControl"
 ), ve = Symbol(
+  "registerLayerControl"
+), be = Symbol(
   "canSetParentHtml"
-), be = Symbol("setParentHtml"), fe = Symbol("setIcon"), ge = Symbol("bindPopup"), Le = Symbol("bindTooltip"), he = Symbol("unbindPopup"), Oe = Symbol("unbindTooltip"), Qt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+), fe = Symbol("setParentHtml"), ge = Symbol("setIcon"), Le = Symbol("bindPopup"), he = Symbol("bindTooltip"), Oe = Symbol("unbindPopup"), Se = Symbol("unbindTooltip"), Xt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   AddLayerInjection: M,
-  BindPopupInjection: ge,
-  BindTooltipInjection: Le,
-  CanSetParentHtmlInjection: ve,
+  BindPopupInjection: Le,
+  BindTooltipInjection: he,
+  CanSetParentHtmlInjection: be,
   RegisterControlInjection: H,
-  RegisterLayerControlInjection: me,
+  RegisterLayerControlInjection: ve,
   RemoveLayerInjection: ee,
-  SetIconInjection: fe,
-  SetParentHtmlInjection: be,
-  UnbindPopupInjection: he,
-  UnbindTooltipInjection: Oe,
+  SetIconInjection: ge,
+  SetParentHtmlInjection: fe,
+  UnbindPopupInjection: Oe,
+  UnbindTooltipInjection: Se,
   UseGlobalLeafletInjection: h
 }, Symbol.toStringTag, { value: "Module" })), W = {
   options: {
@@ -103,7 +103,7 @@ const ce = (e, o) => {
     default: () => ({}),
     custom: !0
   }
-}, J = (e) => ({ options: e.options, methods: {} }), bt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, J = (t) => ({ options: t.options, methods: {} }), ft = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   componentProps: W,
   setupComponent: J
@@ -128,42 +128,42 @@ const ce = (e, o) => {
     custom: !0,
     default: !0
   }
-}, q = (e, o, t) => {
-  const n = m(M), s = m(ee), { options: r, methods: l } = J(e), a = f(
-    e,
+}, q = (t, o, e) => {
+  const n = y(M), s = y(ee), { options: r, methods: l } = J(t), a = f(
+    t,
     D,
     r
   ), i = () => n({ leafletObject: o.value }), u = () => s({ leafletObject: o.value }), d = {
     ...l,
-    setAttribution(y) {
-      u(), o.value.options.attribution = y, e.visible && i();
+    setAttribution(m) {
+      u(), o.value.options.attribution = m, t.visible && i();
     },
     setName() {
-      u(), e.visible && i();
+      u(), t.visible && i();
     },
     setLayerType() {
-      u(), e.visible && i();
+      u(), t.visible && i();
     },
-    setVisible(y) {
-      o.value && (y ? i() : u());
+    setVisible(m) {
+      o.value && (m ? i() : u());
     },
-    bindPopup(y) {
+    bindPopup(m) {
       if (!o.value || !k(o.value.bindPopup)) {
         console.warn(
           "Attempt to bind popup before bindPopup method available on layer."
         );
         return;
       }
-      o.value.bindPopup(y);
+      o.value.bindPopup(m);
     },
-    bindTooltip(y) {
+    bindTooltip(m) {
       if (!o.value || !k(o.value.bindTooltip)) {
         console.warn(
           "Attempt to bind tooltip before bindTooltip method available on layer."
         );
         return;
       }
-      o.value.bindTooltip(y);
+      o.value.bindTooltip(m);
     },
     unbindTooltip() {
       o.value && (k(o.value.closeTooltip) && o.value.closeTooltip(), k(o.value.unbindTooltip) && o.value.unbindTooltip());
@@ -171,22 +171,22 @@ const ce = (e, o) => {
     unbindPopup() {
       o.value && (k(o.value.closePopup) && o.value.closePopup(), k(o.value.unbindPopup) && o.value.unbindPopup());
     },
-    updateVisibleProp(y) {
-      t.emit("update:visible", y);
+    updateVisibleProp(m) {
+      e.emit("update:visible", m);
     }
   };
-  return A(ge, d.bindPopup), A(Le, d.bindTooltip), A(he, d.unbindPopup), A(Oe, d.unbindTooltip), pe(() => {
+  return A(Le, d.bindPopup), A(he, d.bindTooltip), A(Oe, d.unbindPopup), A(Se, d.unbindTooltip), ye(() => {
     d.unbindPopup(), d.unbindTooltip(), u();
   }), { options: a, methods: d };
-}, G = (e, o) => {
-  if (e && o.default)
+}, I = (t, o) => {
+  if (t && o.default)
     return U("div", { style: { display: "none" } }, o.default());
-}, ft = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, gt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   layerProps: D,
-  render: G,
+  render: I,
   setupLayer: q
-}, Symbol.toStringTag, { value: "Module" })), Se = {
+}, Symbol.toStringTag, { value: "Module" })), _e = {
   ...D,
   interactive: {
     type: Boolean,
@@ -196,23 +196,23 @@ const ce = (e, o) => {
     type: Boolean,
     default: void 0
   }
-}, Ke = (e, o, t) => {
+}, Ve = (t, o, e) => {
   const { options: n, methods: s } = q(
-    e,
+    t,
     o,
-    t
+    e
   );
   return { options: f(
-    e,
-    Se,
+    t,
+    _e,
     n
   ), methods: s };
-}, gt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Lt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  interactiveLayerProps: Se,
-  setupInteractiveLayer: Ke
+  interactiveLayerProps: _e,
+  setupInteractiveLayer: Ve
 }, Symbol.toStringTag, { value: "Module" })), ne = {
-  ...Se,
+  ..._e,
   stroke: {
     type: Boolean,
     default: void 0
@@ -254,12 +254,12 @@ const ce = (e, o) => {
   className: {
     type: String
   }
-}, _e = (e, o, t) => {
-  const { options: n, methods: s } = Ke(e, o, t), r = f(
-    e,
+}, je = (t, o, e) => {
+  const { options: n, methods: s } = Ve(t, o, e), r = f(
+    t,
     ne,
     n
-  ), l = m(ee), a = {
+  ), l = y(ee), a = {
     ...s,
     setStroke(i) {
       o.value.setStyle({ stroke: i });
@@ -304,10 +304,10 @@ const ce = (e, o) => {
   return R(() => {
     l({ leafletObject: o.value });
   }), { options: r, methods: a };
-}, Lt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, ht = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   pathProps: ne,
-  setupPath: _e
+  setupPath: je
 }, Symbol.toStringTag, { value: "Module" })), re = {
   ...ne,
   /**
@@ -321,13 +321,13 @@ const ce = (e, o) => {
     required: !0,
     custom: !0
   }
-}, je = (e, o, t) => {
-  const { options: n, methods: s } = _e(
-    e,
+}, Pe = (t, o, e) => {
+  const { options: n, methods: s } = je(
+    t,
     o,
-    t
+    e
   ), r = f(
-    e,
+    t,
     re,
     n
   ), l = {
@@ -340,11 +340,11 @@ const ce = (e, o) => {
     }
   };
   return { options: r, methods: l };
-}, ht = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Ot = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   circleMarkerProps: re,
-  setupCircleMarker: je
-}, Symbol.toStringTag, { value: "Module" })), Pe = {
+  setupCircleMarker: Pe
+}, Symbol.toStringTag, { value: "Module" })), Ce = {
   ...re,
   /**
    * Radius of the circle in meters.
@@ -352,91 +352,91 @@ const ce = (e, o) => {
   radius: {
     type: Number
   }
-}, Qe = (e, o, t) => {
-  const { options: n, methods: s } = je(e, o, t), r = f(
-    e,
-    Pe,
+}, Qe = (t, o, e) => {
+  const { options: n, methods: s } = Pe(t, o, e), r = f(
+    t,
+    Ce,
     n
   ), l = {
     ...s
   };
   return { options: r, methods: l };
-}, Ot = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, St = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  circleProps: Pe,
+  circleProps: Ce,
   setupCircle: Qe
-}, Symbol.toStringTag, { value: "Module" })), Xt = S({
+}, Symbol.toStringTag, { value: "Module" })), Yt = S({
   name: "LCircle",
-  props: Pe,
-  setup(e, o) {
-    const t = c(), n = c(!1), s = O(h), r = m(M), { options: l, methods: a } = Qe(e, t, o);
+  props: Ce,
+  setup(t, o) {
+    const e = c(), n = c(!1), s = O(h), r = y(M), { options: l, methods: a } = Qe(t, e, o);
     return _(async () => {
-      const { circle: i } = s ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(i(e.latLng, l));
+      const { circle: i } = s ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(i(t.latLng, l));
       const { listeners: u } = T(o.attrs);
-      t.value.on(u), L(a, t.value, e), r({
-        ...e,
+      e.value.on(u), L(a, e.value, t), r({
+        ...t,
         ...a,
-        leafletObject: t.value
-      }), n.value = !0, g(() => o.emit("ready", t.value));
-    }), { ready: n, leafletObject: t };
+        leafletObject: e.value
+      }), n.value = !0, g(() => o.emit("ready", e.value));
+    }), { ready: n, leafletObject: e };
   },
   render() {
-    return G(this.ready, this.$slots);
+    return I(this.ready, this.$slots);
   }
-}), Yt = S({
+}), xt = S({
   name: "LCircleMarker",
   props: re,
-  setup(e, o) {
-    const t = c(), n = c(!1), s = O(h), r = m(M), { options: l, methods: a } = je(
-      e,
+  setup(t, o) {
+    const e = c(), n = c(!1), s = O(h), r = y(M), { options: l, methods: a } = Pe(
       t,
+      e,
       o
     );
     return _(async () => {
-      const { circleMarker: i } = s ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(
-        i(e.latLng, l)
+      const { circleMarker: i } = s ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(
+        i(t.latLng, l)
       );
       const { listeners: u } = T(o.attrs);
-      t.value.on(u), L(a, t.value, e), r({
-        ...e,
+      e.value.on(u), L(a, e.value, t), r({
+        ...t,
         ...a,
-        leafletObject: t.value
-      }), n.value = !0, g(() => o.emit("ready", t.value));
-    }), { ready: n, leafletObject: t };
+        leafletObject: e.value
+      }), n.value = !0, g(() => o.emit("ready", e.value));
+    }), { ready: n, leafletObject: e };
   },
   render() {
-    return G(this.ready, this.$slots);
+    return I(this.ready, this.$slots);
   }
-}), F = {
+}), E = {
   ...W,
   position: {
     type: String
   }
-}, K = (e, o) => {
-  const { options: t, methods: n } = J(e), s = f(
-    e,
-    F,
-    t
+}, K = (t, o) => {
+  const { options: e, methods: n } = J(t), s = f(
+    t,
+    E,
+    e
   ), r = {
     ...n,
     setPosition(l) {
       o.value && o.value.setPosition(l);
     }
   };
-  return pe(() => {
+  return ye(() => {
     o.value && o.value.remove();
   }), { options: s, methods: r };
-}, Xe = (e) => e.default ? U("div", { ref: "root" }, e.default()) : null, St = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Xe = (t) => t.default ? U("div", { ref: "root" }, t.default()) : null, _t = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  controlProps: F,
+  controlProps: E,
   renderLControl: Xe,
   setupControl: K
-}, Symbol.toStringTag, { value: "Module" })), Vt = S({
+}, Symbol.toStringTag, { value: "Module" })), Rt = S({
   name: "LControl",
   props: {
-    ...F,
+    ...E,
     disableClickPropagation: {
       type: Boolean,
       custom: !0,
@@ -448,33 +448,33 @@ const ce = (e, o) => {
       default: !1
     }
   },
-  setup(e, o) {
-    const t = c(), n = c(), s = O(h), r = m(H), { options: l, methods: a } = K(e, t);
+  setup(t, o) {
+    const e = c(), n = c(), s = O(h), r = y(H), { options: l, methods: a } = K(t, e);
     return _(async () => {
-      const { Control: i, DomEvent: u } = s ? b.L : await import("leaflet/dist/leaflet-src.esm"), d = i.extend({
+      const { Control: i, DomEvent: u } = s ? v.L : await import("leaflet/dist/leaflet-src.esm"), d = i.extend({
         onAdd() {
           return n.value;
         }
       });
-      t.value = j(new d(l)), L(a, t.value, e), r({ leafletObject: t.value }), e.disableClickPropagation && n.value && u.disableClickPropagation(n.value), e.disableScrollPropagation && n.value && u.disableScrollPropagation(n.value), g(() => o.emit("ready", t.value));
-    }), { root: n, leafletObject: t };
+      e.value = j(new d(l)), L(a, e.value, t), r({ leafletObject: e.value }), t.disableClickPropagation && n.value && u.disableClickPropagation(n.value), t.disableScrollPropagation && n.value && u.disableScrollPropagation(n.value), g(() => o.emit("ready", e.value));
+    }), { root: n, leafletObject: e };
   },
   render() {
     return Xe(this.$slots);
   }
-}), Ce = {
-  ...F,
+}), Te = {
+  ...E,
   prefix: {
     type: String
   }
-}, Ye = (e, o) => {
-  const { options: t, methods: n } = K(
-    e,
+}, Ye = (t, o) => {
+  const { options: e, methods: n } = K(
+    t,
     o
   ), s = f(
-    e,
-    Ce,
-    t
+    t,
+    Te,
+    e
   ), r = {
     ...n,
     setPrefix(l) {
@@ -482,27 +482,27 @@ const ce = (e, o) => {
     }
   };
   return { options: s, methods: r };
-}, _t = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, jt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  controlAttributionProps: Ce,
+  controlAttributionProps: Te,
   setupControlAttribution: Ye
-}, Symbol.toStringTag, { value: "Module" })), xt = S({
+}, Symbol.toStringTag, { value: "Module" })), eo = S({
   name: "LControlAttribution",
-  props: Ce,
-  setup(e, o) {
-    const t = c(), n = O(h), s = m(H), { options: r, methods: l } = Ye(e, t);
+  props: Te,
+  setup(t, o) {
+    const e = c(), n = O(h), s = y(H), { options: r, methods: l } = Ye(t, e);
     return _(async () => {
-      const { control: a } = n ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(
+      const { control: a } = n ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(
         a.attribution(r)
-      ), L(l, t.value, e), s({ leafletObject: t.value }), g(() => o.emit("ready", t.value));
-    }), { leafletObject: t };
+      ), L(l, e.value, t), s({ leafletObject: e.value }), g(() => o.emit("ready", e.value));
+    }), { leafletObject: e };
   },
   render() {
     return null;
   }
-}), Te = {
-  ...F,
+}), Me = {
+  ...E,
   collapsed: {
     type: Boolean,
     default: void 0
@@ -522,12 +522,12 @@ const ce = (e, o) => {
   sortFunction: {
     type: Function
   }
-}, Ve = (e, o) => {
-  const { options: t } = K(e, o);
+}, xe = (t, o) => {
+  const { options: e } = K(t, o);
   return { options: f(
-    e,
-    Te,
-    t
+    t,
+    Me,
+    e
   ), methods: {
     addLayer(r) {
       r.layerType === "base" ? o.value.addBaseLayer(r.leafletObject, r.name) : r.layerType === "overlay" && o.value.addOverlay(r.leafletObject, r.name);
@@ -536,31 +536,31 @@ const ce = (e, o) => {
       o.value.removeLayer(r.leafletObject);
     }
   } };
-}, jt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Pt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  controlLayersProps: Te,
-  setupControlLayers: Ve
-}, Symbol.toStringTag, { value: "Module" })), Rt = S({
+  controlLayersProps: Me,
+  setupControlLayers: xe
+}, Symbol.toStringTag, { value: "Module" })), to = S({
   name: "LControlLayers",
-  props: Te,
-  setup(e, o) {
-    const t = c(), n = O(h), s = m(me), { options: r, methods: l } = Ve(e, t);
+  props: Me,
+  setup(t, o) {
+    const e = c(), n = O(h), s = y(ve), { options: r, methods: l } = xe(t, e);
     return _(async () => {
-      const { control: a } = n ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(
+      const { control: a } = n ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(
         a.layers(void 0, void 0, r)
-      ), L(l, t.value, e), s({
-        ...e,
+      ), L(l, e.value, t), s({
+        ...t,
         ...l,
-        leafletObject: t.value
-      }), g(() => o.emit("ready", t.value));
-    }), { leafletObject: t };
+        leafletObject: e.value
+      }), g(() => o.emit("ready", e.value));
+    }), { leafletObject: e };
   },
   render() {
     return null;
   }
-}), Me = {
-  ...F,
+}), Be = {
+  ...E,
   maxWidth: {
     type: Number
   },
@@ -576,35 +576,35 @@ const ce = (e, o) => {
     type: Boolean,
     default: void 0
   }
-}, xe = (e, o) => {
-  const { options: t, methods: n } = K(
-    e,
+}, Re = (t, o) => {
+  const { options: e, methods: n } = K(
+    t,
     o
   );
   return { options: f(
-    e,
-    Me,
-    t
+    t,
+    Be,
+    e
   ), methods: n };
-}, Pt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Ct = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  controlScaleProps: Me,
-  setupControlScale: xe
-}, Symbol.toStringTag, { value: "Module" })), eo = S({
+  controlScaleProps: Be,
+  setupControlScale: Re
+}, Symbol.toStringTag, { value: "Module" })), oo = S({
   name: "LControlScale",
-  props: Me,
-  setup(e, o) {
-    const t = c(), n = O(h), s = m(H), { options: r, methods: l } = xe(e, t);
+  props: Be,
+  setup(t, o) {
+    const e = c(), n = O(h), s = y(H), { options: r, methods: l } = Re(t, e);
     return _(async () => {
-      const { control: a } = n ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(a.scale(r)), L(l, t.value, e), s({ leafletObject: t.value }), g(() => o.emit("ready", t.value));
-    }), { leafletObject: t };
+      const { control: a } = n ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(a.scale(r)), L(l, e.value, t), s({ leafletObject: e.value }), g(() => o.emit("ready", e.value));
+    }), { leafletObject: e };
   },
   render() {
     return null;
   }
-}), Be = {
-  ...F,
+}), we = {
+  ...E,
   zoomInText: {
     type: String
   },
@@ -617,42 +617,42 @@ const ce = (e, o) => {
   zoomOutTitle: {
     type: String
   }
-}, Re = (e, o) => {
-  const { options: t, methods: n } = K(
-    e,
+}, et = (t, o) => {
+  const { options: e, methods: n } = K(
+    t,
     o
   );
   return { options: f(
-    e,
-    Be,
-    t
+    t,
+    we,
+    e
   ), methods: n };
-}, Ct = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Tt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  controlZoomProps: Be,
-  setupControlZoom: Re
-}, Symbol.toStringTag, { value: "Module" })), to = S({
+  controlZoomProps: we,
+  setupControlZoom: et
+}, Symbol.toStringTag, { value: "Module" })), no = S({
   name: "LControlZoom",
-  props: Be,
-  setup(e, o) {
-    const t = c(), n = O(h), s = m(H), { options: r, methods: l } = Re(e, t);
+  props: we,
+  setup(t, o) {
+    const e = c(), n = O(h), s = y(H), { options: r, methods: l } = et(t, e);
     return _(async () => {
-      const { control: a } = n ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(a.zoom(r)), L(l, t.value, e), s({ leafletObject: t.value }), g(() => o.emit("ready", t.value));
-    }), { leafletObject: t };
+      const { control: a } = n ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(a.zoom(r)), L(l, e.value, t), s({ leafletObject: e.value }), g(() => o.emit("ready", e.value));
+    }), { leafletObject: e };
   },
   render() {
     return null;
   }
 }), te = {
   ...D
-}, se = (e, o, t) => {
+}, se = (t, o, e) => {
   const { options: n, methods: s } = q(
-    e,
+    t,
     o,
-    t
+    e
   ), r = f(
-    e,
+    t,
     te,
     n
   ), l = {
@@ -665,52 +665,52 @@ const ce = (e, o) => {
     }
   };
   return A(M, l.addLayer), A(ee, l.removeLayer), { options: r, methods: l };
-}, Tt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Mt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   layerGroupProps: te,
   setupLayerGroup: se
-}, Symbol.toStringTag, { value: "Module" })), we = {
+}, Symbol.toStringTag, { value: "Module" })), Ge = {
   ...te
-}, et = (e, o, t) => {
+}, tt = (t, o, e) => {
   const { options: n, methods: s } = se(
-    e,
+    t,
     o,
-    t
+    e
   ), r = f(
-    e,
-    we,
+    t,
+    Ge,
     n
   ), l = {
     ...s
   };
   return { options: r, methods: l };
-}, Mt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Bt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  featureGroupProps: we,
-  setupFeatureGroup: et
-}, Symbol.toStringTag, { value: "Module" })), oo = S({
-  props: we,
-  setup(e, o) {
-    const t = c(), n = c(!1), s = O(h), r = m(M), { methods: l, options: a } = et(
-      e,
+  featureGroupProps: Ge,
+  setupFeatureGroup: tt
+}, Symbol.toStringTag, { value: "Module" })), ro = S({
+  props: Ge,
+  setup(t, o) {
+    const e = c(), n = c(!1), s = O(h), r = y(M), { methods: l, options: a } = tt(
       t,
+      e,
       o
     );
     return _(async () => {
-      const { featureGroup: i } = s ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(
+      const { featureGroup: i } = s ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(
         i(void 0, a)
       );
       const { listeners: u } = T(o.attrs);
-      t.value.on(u), L(l, t.value, e), r({
-        ...e,
+      e.value.on(u), L(l, e.value, t), r({
+        ...t,
         ...l,
-        leafletObject: t.value
-      }), n.value = !0, g(() => o.emit("ready", t.value));
-    }), { ready: n, leafletObject: t };
+        leafletObject: e.value
+      }), n.value = !0, g(() => o.emit("ready", e.value));
+    }), { ready: n, leafletObject: e };
   },
   render() {
-    return G(this.ready, this.$slots);
+    return I(this.ready, this.$slots);
   }
 }), Ie = {
   ...te,
@@ -722,17 +722,17 @@ const ce = (e, o) => {
     type: Function,
     custom: !0
   }
-}, tt = (e, o, t) => {
+}, ot = (t, o, e) => {
   const { options: n, methods: s } = se(
-    e,
+    t,
     o,
-    t
+    e
   ), r = f(
-    e,
+    t,
     Ie,
     n
   );
-  Object.prototype.hasOwnProperty.call(e, "optionsStyle") && (r.style = e.optionsStyle);
+  Object.prototype.hasOwnProperty.call(t, "optionsStyle") && (r.style = t.optionsStyle);
   const l = {
     ...s,
     setGeojson(a) {
@@ -749,27 +749,27 @@ const ce = (e, o) => {
     }
   };
   return { options: r, methods: l };
-}, Bt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, wt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   geoJSONProps: Ie,
-  setupGeoJSON: tt
-}, Symbol.toStringTag, { value: "Module" })), no = S({
+  setupGeoJSON: ot
+}, Symbol.toStringTag, { value: "Module" })), so = S({
   props: Ie,
-  setup(e, o) {
-    const t = c(), n = c(!1), s = O(h), r = m(M), { methods: l, options: a } = tt(e, t, o);
+  setup(t, o) {
+    const e = c(), n = c(!1), s = O(h), r = y(M), { methods: l, options: a } = ot(t, e, o);
     return _(async () => {
-      const { geoJSON: i } = s ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(i(e.geojson, a));
+      const { geoJSON: i } = s ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(i(t.geojson, a));
       const { listeners: u } = T(o.attrs);
-      t.value.on(u), L(l, t.value, e), r({
-        ...e,
+      e.value.on(u), L(l, e.value, t), r({
+        ...t,
         ...l,
-        leafletObject: t.value
-      }), n.value = !0, g(() => o.emit("ready", t.value));
-    }), { ready: n, leafletObject: t };
+        leafletObject: e.value
+      }), n.value = !0, g(() => o.emit("ready", e.value));
+    }), { ready: n, leafletObject: e };
   },
   render() {
-    return G(this.ready, this.$slots);
+    return I(this.ready, this.$slots);
   }
 }), ae = {
   ...D,
@@ -795,13 +795,13 @@ const ce = (e, o) => {
   className: {
     type: String
   }
-}, Ae = (e, o, t) => {
+}, Ae = (t, o, e) => {
   const { options: n, methods: s } = q(
-    e,
+    t,
     o,
-    t
+    e
   ), r = f(
-    e,
+    t,
     ae,
     n
   ), l = {
@@ -811,29 +811,29 @@ const ce = (e, o) => {
       (a = o.value) == null || a.redraw();
     }
   };
-  return pe(() => {
+  return ye(() => {
     o.value.off();
   }), { options: r, methods: l };
-}, ot = (e, o, t, n) => e.extend({
+}, nt = (t, o, e, n) => t.extend({
   initialize(s) {
-    this.tileComponents = {}, this.on("tileunload", this._unloadTile), t.setOptions(this, s);
+    this.tileComponents = {}, this.on("tileunload", this._unloadTile), e.setOptions(this, s);
   },
   createTile(s) {
     const r = this._tileCoordsToKey(s);
     this.tileComponents[r] = o.create("div");
     const l = U({ setup: n, props: ["coords"] }, { coords: s });
-    return mt(l, this.tileComponents[r]), this.tileComponents[r];
+    return vt(l, this.tileComponents[r]), this.tileComponents[r];
   },
   _unloadTile(s) {
     const r = this._tileCoordsToKey(s.coords);
     this.tileComponents[r] && (this.tileComponents[r].innerHTML = "", this.tileComponents[r] = void 0);
   }
-}), wt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}), Gt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  CreateVueGridLayer: ot,
+  CreateVueGridLayer: nt,
   gridLayerProps: ae,
   setupGridLayer: Ae
-}, Symbol.toStringTag, { value: "Module" })), ro = S({
+}, Symbol.toStringTag, { value: "Module" })), ao = S({
   props: {
     ...ae,
     childRender: {
@@ -841,28 +841,28 @@ const ce = (e, o) => {
       required: !0
     }
   },
-  setup(e, o) {
-    const t = c(), n = c(null), s = c(!1), r = O(h), l = m(M), { options: a, methods: i } = Ae(e, t, o);
+  setup(t, o) {
+    const e = c(), n = c(null), s = c(!1), r = O(h), l = y(M), { options: a, methods: i } = Ae(t, e, o);
     return _(async () => {
-      const { GridLayer: u, DomUtil: d, Util: y } = r ? b.L : await import("leaflet/dist/leaflet-src.esm"), w = ot(
+      const { GridLayer: u, DomUtil: d, Util: m } = r ? v.L : await import("leaflet/dist/leaflet-src.esm"), w = nt(
         u,
         d,
-        y,
-        e.childRender
+        m,
+        t.childRender
       );
-      t.value = j(new w(a));
-      const { listeners: v } = T(o.attrs);
-      t.value.on(v), L(i, t.value, e), l({
-        ...e,
+      e.value = j(new w(a));
+      const { listeners: b } = T(o.attrs);
+      e.value.on(b), L(i, e.value, t), l({
+        ...t,
         ...i,
-        leafletObject: t.value
-      }), s.value = !0, g(() => o.emit("ready", t.value));
-    }), { root: n, ready: s, leafletObject: t };
+        leafletObject: e.value
+      }), s.value = !0, g(() => o.emit("ready", e.value));
+    }), { root: n, ready: s, leafletObject: e };
   },
   render() {
     return this.ready ? U("div", { style: { display: "none" }, ref: "root" }) : null;
   }
-}), de = {
+}), pe = {
   iconUrl: {
     type: String
   },
@@ -901,67 +901,67 @@ const ce = (e, o) => {
   }
 }, It = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  iconProps: de
-}, Symbol.toStringTag, { value: "Module" })), so = S({
+  iconProps: pe
+}, Symbol.toStringTag, { value: "Module" })), lo = S({
   name: "LIcon",
   props: {
-    ...de,
+    ...pe,
     ...W
   },
-  setup(e, o) {
-    const t = c(), n = O(h), s = m(ve), r = m(be), l = m(fe);
-    let a, i, u, d, y;
+  setup(t, o) {
+    const e = c(), n = O(h), s = y(be), r = y(fe), l = y(ge);
+    let a, i, u, d, m;
     const w = (N, P, B) => {
-      const I = N && N.innerHTML;
+      const G = N && N.innerHTML;
       if (!P) {
-        B && y && s() && r(I);
+        B && m && s() && r(G);
         return;
       }
-      const { listeners: E } = T(o.attrs);
-      y && i(y, E);
-      const { options: ue } = J(e), $ = f(
-        e,
-        de,
-        ue
+      const { listeners: Z } = T(o.attrs);
+      m && i(m, Z);
+      const { options: ce } = J(t), $ = f(
+        t,
+        pe,
+        ce
       );
-      I && ($.html = I), y = $.html ? u($) : d($), a(y, E), l(y);
-    }, v = () => {
-      g(() => w(t.value, !0, !1));
+      G && ($.html = G), m = $.html ? u($) : d($), a(m, Z), l(m);
+    }, b = () => {
+      g(() => w(e.value, !0, !1));
     }, z = () => {
-      g(() => w(t.value, !1, !0));
-    }, Z = {
-      setIconUrl: v,
-      setIconRetinaUrl: v,
-      setIconSize: v,
-      setIconAnchor: v,
-      setPopupAnchor: v,
-      setTooltipAnchor: v,
-      setShadowUrl: v,
-      setShadowRetinaUrl: v,
-      setShadowAnchor: v,
-      setBgPos: v,
-      setClassName: v,
-      setHtml: v
+      g(() => w(e.value, !1, !0));
+    }, F = {
+      setIconUrl: b,
+      setIconRetinaUrl: b,
+      setIconSize: b,
+      setIconAnchor: b,
+      setPopupAnchor: b,
+      setTooltipAnchor: b,
+      setShadowUrl: b,
+      setShadowRetinaUrl: b,
+      setShadowAnchor: b,
+      setBgPos: b,
+      setClassName: b,
+      setHtml: b
     };
     return _(async () => {
       const {
         DomEvent: N,
         divIcon: P,
         icon: B
-      } = n ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      a = N.on, i = N.off, u = P, d = B, L(Z, {}, e), new MutationObserver(z).observe(t.value, {
+      } = n ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      a = N.on, i = N.off, u = P, d = B, L(F, {}, t), new MutationObserver(z).observe(e.value, {
         attributes: !0,
         childList: !0,
         characterData: !0,
         subtree: !0
-      }), v();
-    }), { root: t };
+      }), b();
+    }), { root: e };
   },
   render() {
-    const e = this.$slots.default ? this.$slots.default() : void 0;
-    return U("div", { ref: "root" }, e);
+    const t = this.$slots.default ? this.$slots.default() : void 0;
+    return U("div", { ref: "root" }, t);
   }
-}), Ge = {
+}), le = {
   ...D,
   opacity: {
     type: Number
@@ -996,14 +996,14 @@ const ce = (e, o) => {
     required: !0,
     custom: !0
   }
-}, nt = (e, o, t) => {
+}, ze = (t, o, e) => {
   const { options: n, methods: s } = q(
-    e,
+    t,
     o,
-    t
+    e
   ), r = f(
-    e,
-    Ge,
+    t,
+    le,
     n
   ), l = {
     ...s,
@@ -1065,91 +1065,135 @@ const ce = (e, o) => {
   return { options: r, methods: l };
 }, At = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  imageOverlayProps: Ge,
-  setupImageOverlay: nt
-}, Symbol.toStringTag, { value: "Module" })), ao = S({
+  imageOverlayProps: le,
+  setupImageOverlay: ze
+}, Symbol.toStringTag, { value: "Module" })), io = S({
   name: "LImageOverlay",
-  props: Ge,
-  setup(e, o) {
-    const t = c(), n = c(!1), s = O(h), r = m(M), { options: l, methods: a } = nt(
-      e,
+  props: le,
+  setup(t, o) {
+    const e = c(), n = c(!1), s = O(h), r = y(M), { options: l, methods: a } = ze(
       t,
+      e,
       o
     );
     return _(async () => {
-      const { imageOverlay: i } = s ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(
-        i(e.url, e.bounds, l)
+      const { imageOverlay: i } = s ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(
+        i(t.url, t.bounds, l)
       );
       const { listeners: u } = T(o.attrs);
-      t.value.on(u), L(a, t.value, e), r({
-        ...e,
+      e.value.on(u), L(a, e.value, t), r({
+        ...t,
         ...a,
-        leafletObject: t.value
-      }), n.value = !0, g(() => o.emit("ready", t.value));
-    }), { ready: n, leafletObject: t };
+        leafletObject: e.value
+      }), n.value = !0, g(() => o.emit("ready", e.value));
+    }), { ready: n, leafletObject: e };
   },
   render() {
-    return G(this.ready, this.$slots);
+    return I(this.ready, this.$slots);
   }
-}), lo = S({
-  props: te,
-  setup(e, o) {
-    const t = c(), n = c(!1), s = O(h), r = m(M), { methods: l } = se(e, t, o);
+}), rt = {
+  ...le,
+  url: {
+    type: [SVGElement, String],
+    required: !0,
+    custom: !0
+  }
+}, zt = (t, o, e) => {
+  const { options: n, methods: s } = ze(t, o, e), r = f(
+    t,
+    rt,
+    n
+  ), l = {
+    ...s,
+    /**
+     * Returns the instance of SVGElement used by this overlay.
+     * @returns {SVGElement}
+     */
+    getElement() {
+      return o.value.getElement();
+    }
+  };
+  return { options: r, methods: l };
+}, uo = S({
+  name: "LSVGOverlay",
+  props: rt,
+  setup(t, o) {
+    const e = c(), n = c(!1), s = O(h), r = y(M), { options: l, methods: a } = zt(t, e, o);
     return _(async () => {
-      const { layerGroup: a } = s ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(
-        a(void 0, e.options)
+      const { svgOverlay: i } = s ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(
+        i(t.url, t.bounds, l)
+      );
+      const { listeners: u } = T(o.attrs);
+      e.value.on(u), L(a, e.value, t), r({
+        ...t,
+        ...a,
+        leafletObject: e.value
+      }), n.value = !0, g(() => o.emit("ready", e.value));
+    }), { ready: n, leafletObject: e };
+  },
+  render() {
+    return I(this.ready, this.$slots);
+  }
+}), co = S({
+  props: te,
+  setup(t, o) {
+    const e = c(), n = c(!1), s = O(h), r = y(M), { methods: l } = se(t, e, o);
+    return _(async () => {
+      const { layerGroup: a } = s ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(
+        a(void 0, t.options)
       );
       const { listeners: i } = T(o.attrs);
-      t.value.on(i), L(l, t.value, e), r({
-        ...e,
+      e.value.on(i), L(l, e.value, t), r({
+        ...t,
         ...l,
-        leafletObject: t.value
-      }), n.value = !0, g(() => o.emit("ready", t.value));
-    }), { ready: n, leafletObject: t };
+        leafletObject: e.value
+      }), n.value = !0, g(() => o.emit("ready", e.value));
+    }), { ready: n, leafletObject: e };
   },
   render() {
-    return G(this.ready, this.$slots);
+    return I(this.ready, this.$slots);
   }
 });
-function rt(e, o, t) {
+function st(t, o, e) {
   var n, s, r;
-  o === void 0 && (o = 50), t === void 0 && (t = {});
-  var l = (n = t.isImmediate) != null && n, a = (s = t.callback) != null && s, i = t.maxWait, u = Date.now(), d = [];
-  function y() {
+  o === void 0 && (o = 50), e === void 0 && (e = {});
+  var l = (n = e.isImmediate) != null && n, a = (s = e.callback) != null && s, i = e.maxWait, u = Date.now(), d = [];
+  function m() {
     if (i !== void 0) {
-      var v = Date.now() - u;
-      if (v + o >= i)
-        return i - v;
+      var b = Date.now() - u;
+      if (b + o >= i)
+        return i - b;
     }
     return o;
   }
   var w = function() {
-    var v = [].slice.call(arguments), z = this;
-    return new Promise(function(Z, N) {
+    var b = [].slice.call(arguments), z = this;
+    return new Promise(function(F, N) {
       var P = l && r === void 0;
       if (r !== void 0 && clearTimeout(r), r = setTimeout(function() {
         if (r = void 0, u = Date.now(), !l) {
-          var I = e.apply(z, v);
-          a && a(I), d.forEach(function(E) {
-            return (0, E.resolve)(I);
+          var G = t.apply(z, b);
+          a && a(G), d.forEach(function(Z) {
+            return (0, Z.resolve)(G);
           }), d = [];
         }
-      }, y()), P) {
-        var B = e.apply(z, v);
-        return a && a(B), Z(B);
+      }, m()), P) {
+        var B = t.apply(z, b);
+        return a && a(B), F(B);
       }
-      d.push({ resolve: Z, reject: N });
+      d.push({ resolve: F, reject: N });
     });
   };
-  return w.cancel = function(v) {
+  return w.cancel = function(b) {
     r !== void 0 && clearTimeout(r), d.forEach(function(z) {
-      return (0, z.reject)(v);
+      return (0, z.reject)(b);
     }), d = [];
   }, w;
 }
-const We = {
+const Je = {
   ...W,
   /**
    * The center of the map, supports .sync modifier
@@ -1261,45 +1305,45 @@ const We = {
     default: !0,
     custom: !0
   }
-}, io = S({
+}, po = S({
   inheritAttrs: !1,
   emits: ["ready", "update:zoom", "update:center", "update:bounds"],
-  props: We,
-  setup(e, o) {
-    const t = c(), n = vt({
+  props: Je,
+  setup(t, o) {
+    const e = c(), n = bt({
       ready: !1,
       layersToAdd: [],
       layersInControl: []
-    }), { options: s } = J(e), r = f(
-      e,
-      We,
+    }), { options: s } = J(t), r = f(
+      t,
+      Je,
       s
-    ), { listeners: l, attrs: a } = T(o.attrs), i = Y(M), u = Y(ee), d = Y(H), y = Y(
-      me
+    ), { listeners: l, attrs: a } = T(o.attrs), i = X(M), u = X(ee), d = X(H), m = X(
+      ve
     );
-    A(h, e.useGlobalLeaflet);
+    A(h, t.useGlobalLeaflet);
     const w = oe(() => {
       const P = {};
-      return e.noBlockingAnimations && (P.animate = !1), P;
-    }), v = oe(() => {
+      return t.noBlockingAnimations && (P.animate = !1), P;
+    }), b = oe(() => {
       const P = w.value;
-      return e.padding && (P.padding = e.padding), e.paddingTopLeft && (P.paddingTopLeft = e.paddingTopLeft), e.paddingBottomRight && (P.paddingBottomRight = e.paddingBottomRight), P;
+      return t.padding && (P.padding = t.padding), t.paddingTopLeft && (P.paddingTopLeft = t.paddingTopLeft), t.paddingBottomRight && (P.paddingBottomRight = t.paddingBottomRight), P;
     }), z = {
-      moveend: rt((P) => {
+      moveend: st((P) => {
         n.leafletRef && (o.emit("update:zoom", n.leafletRef.getZoom()), o.emit("update:center", n.leafletRef.getCenter()), o.emit("update:bounds", n.leafletRef.getBounds()));
       }),
       overlayadd(P) {
-        const B = n.layersInControl.find((I) => I.name === P.name);
+        const B = n.layersInControl.find((G) => G.name === P.name);
         B && B.updateVisibleProp(!0);
       },
       overlayremove(P) {
-        const B = n.layersInControl.find((I) => I.name === P.name);
+        const B = n.layersInControl.find((G) => G.name === P.name);
         B && B.updateVisibleProp(!1);
       }
     };
     _(async () => {
-      e.useGlobalLeaflet && (b.L = b.L || await import("leaflet"));
-      const { map: P, CRS: B, Icon: I, latLngBounds: E, latLng: ue, stamp: $ } = e.useGlobalLeaflet ? b.L : await import("leaflet/dist/leaflet-src.esm");
+      t.useGlobalLeaflet && (v.L = v.L || await import("leaflet"));
+      const { map: P, CRS: B, Icon: G, latLngBounds: Z, latLng: ce, stamp: $ } = t.useGlobalLeaflet ? v.L : await import("leaflet/dist/leaflet-src.esm");
       try {
         r.beforeMapMount && await r.beforeMapMount();
       } catch (p) {
@@ -1307,13 +1351,13 @@ const We = {
           `The following error occurred running the provided beforeMapMount hook ${p.message}`
         );
       }
-      await qe(I);
-      const yt = typeof r.crs == "string" ? B[r.crs] : r.crs;
-      r.crs = yt || B.EPSG3857;
-      const Q = {
+      await Ke(G);
+      const mt = typeof r.crs == "string" ? B[r.crs] : r.crs;
+      r.crs = mt || B.EPSG3857;
+      const V = {
         addLayer(p) {
           p.layerType !== void 0 && (n.layerControl === void 0 ? n.layersToAdd.push(p) : n.layersInControl.find(
-            (X) => $(X.leafletObject) === $(p.leafletObject)
+            (Q) => $(Q.leafletObject) === $(p.leafletObject)
           ) || (n.layerControl.addLayer(p), n.layersInControl.push(p))), p.visible !== !1 && n.leafletRef.addLayer(p.leafletObject);
         },
         removeLayer(p) {
@@ -1343,12 +1387,12 @@ const We = {
           });
         },
         fitBounds(p) {
-          n.leafletRef.fitBounds(p, v.value);
+          n.leafletRef.fitBounds(p, b.value);
         },
         setBounds(p) {
           if (!p)
             return;
-          const C = E(p);
+          const C = Z(p);
           if (!C.isValid())
             return;
           !(n.lastSetBounds || n.leafletRef.getBounds()).equals(C, 0) && (n.lastSetBounds = C, n.leafletRef.fitBounds(C));
@@ -1356,28 +1400,28 @@ const We = {
         setCenter(p) {
           if (p == null)
             return;
-          const C = ue(p), X = n.lastSetCenter || n.leafletRef.getCenter();
-          (X.lat !== C.lat || X.lng !== C.lng) && (n.lastSetCenter = C, n.leafletRef.panTo(C, w.value));
+          const C = ce(p), Q = n.lastSetCenter || n.leafletRef.getCenter();
+          (Q.lat !== C.lat || Q.lng !== C.lng) && (n.lastSetCenter = C, n.leafletRef.panTo(C, w.value));
         }
       };
-      V(i, Q.addLayer), V(u, Q.removeLayer), V(d, Q.registerControl), V(y, Q.registerLayerControl), n.leafletRef = j(P(t.value, r)), L(Q, n.leafletRef, e), ce(n.leafletRef, z), ce(n.leafletRef, l), n.ready = !0, g(() => o.emit("ready", n.leafletRef));
+      Y(i, V.addLayer), Y(u, V.removeLayer), Y(d, V.registerControl), Y(m, V.registerLayerControl), n.leafletRef = j(P(e.value, r)), L(V, n.leafletRef, t), de(n.leafletRef, z), de(n.leafletRef, l), n.ready = !0, g(() => o.emit("ready", n.leafletRef));
     }), R(() => {
-      ye(z), n.leafletRef && (n.leafletRef.off(), n.leafletRef.remove());
+      me(z), n.leafletRef && (n.leafletRef.off(), n.leafletRef.remove());
     });
-    const Z = oe(() => n.leafletRef), N = oe(() => n.ready);
-    return { root: t, ready: N, leafletObject: Z, attrs: a };
+    const F = oe(() => n.leafletRef), N = oe(() => n.ready);
+    return { root: e, ready: N, leafletObject: F, attrs: a };
   },
-  render({ attrs: e }) {
-    return e.style || (e.style = {}), e.style.width || (e.style.width = "100%"), e.style.height || (e.style.height = "100%"), U(
+  render({ attrs: t }) {
+    return t.style || (t.style = {}), t.style.width || (t.style.width = "100%"), t.style.height || (t.style.height = "100%"), U(
       "div",
       {
-        ...e,
+        ...t,
         ref: "root"
       },
       this.ready && this.$slots.default ? this.$slots.default() : {}
     );
   }
-}), Gt = ["Symbol(Comment)", "Symbol(Text)"], zt = ["LTooltip", "LPopup"], ze = {
+}), Nt = ["Symbol(Comment)", "Symbol(Text)"], $t = ["LTooltip", "LPopup"], Ne = {
   ...D,
   draggable: {
     type: Boolean,
@@ -1394,14 +1438,14 @@ const We = {
     custom: !0,
     required: !0
   }
-}, st = (e, o, t) => {
+}, at = (t, o, e) => {
   const { options: n, methods: s } = q(
-    e,
+    t,
     o,
-    t
+    e
   ), r = f(
-    e,
-    ze,
+    t,
+    Ne,
     n
   ), l = {
     ...s,
@@ -1409,7 +1453,7 @@ const We = {
       o.value.dragging && (a ? o.value.dragging.enable() : o.value.dragging.disable());
     },
     latLngSync(a) {
-      t.emit("update:latLng", a.latlng), t.emit("update:lat-lng", a.latlng);
+      e.emit("update:latLng", a.latlng), e.emit("update:lat-lng", a.latlng);
     },
     setLatLng(a) {
       if (a != null && o.value) {
@@ -1419,58 +1463,58 @@ const We = {
     }
   };
   return { options: r, methods: l };
-}, at = (e, o) => {
-  const t = o.slots.default && o.slots.default();
-  return t && t.length && t.some(Nt);
+}, lt = (t, o) => {
+  const e = o.slots.default && o.slots.default();
+  return e && e.length && e.some(kt);
 };
-function Nt(e) {
-  return !(Gt.includes(e.type.toString()) || zt.includes(e.type.name));
+function kt(t) {
+  return !(Nt.includes(t.type.toString()) || $t.includes(t.type.name));
 }
-const $t = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Ut = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  markerProps: ze,
-  setupMarker: st,
-  shouldBlankIcon: at
-}, Symbol.toStringTag, { value: "Module" })), uo = S({
+  markerProps: Ne,
+  setupMarker: at,
+  shouldBlankIcon: lt
+}, Symbol.toStringTag, { value: "Module" })), yo = S({
   name: "LMarker",
-  props: ze,
-  setup(e, o) {
-    const t = c(), n = c(!1), s = O(h), r = m(M);
+  props: Ne,
+  setup(t, o) {
+    const e = c(), n = c(!1), s = O(h), r = y(M);
     A(
-      ve,
+      be,
       () => {
         var u;
-        return !!((u = t.value) != null && u.getElement());
+        return !!((u = e.value) != null && u.getElement());
       }
-    ), A(be, (u) => {
-      var y, w;
-      const d = k((y = t.value) == null ? void 0 : y.getElement) && ((w = t.value) == null ? void 0 : w.getElement());
+    ), A(fe, (u) => {
+      var m, w;
+      const d = k((m = e.value) == null ? void 0 : m.getElement) && ((w = e.value) == null ? void 0 : w.getElement());
       d && (d.innerHTML = u);
     }), A(
-      fe,
+      ge,
       (u) => {
         var d;
-        return ((d = t.value) == null ? void 0 : d.setIcon) && t.value.setIcon(u);
+        return ((d = e.value) == null ? void 0 : d.setIcon) && e.value.setIcon(u);
       }
     );
-    const { options: l, methods: a } = st(e, t, o), i = {
-      moveHandler: rt(a.latLngSync)
+    const { options: l, methods: a } = at(t, e, o), i = {
+      moveHandler: st(a.latLngSync)
     };
     return _(async () => {
-      const { marker: u, divIcon: d } = s ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      at(l, o) && (l.icon = d({ className: "" })), t.value = j(u(e.latLng, l));
-      const { listeners: y } = T(o.attrs);
-      t.value.on(y), t.value.on("move", i.moveHandler), L(a, t.value, e), r({
-        ...e,
+      const { marker: u, divIcon: d } = s ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      lt(l, o) && (l.icon = d({ className: "" })), e.value = j(u(t.latLng, l));
+      const { listeners: m } = T(o.attrs);
+      e.value.on(m), e.value.on("move", i.moveHandler), L(a, e.value, t), r({
+        ...t,
         ...a,
-        leafletObject: t.value
-      }), n.value = !0, g(() => o.emit("ready", t.value));
-    }), R(() => ye(i)), { ready: n, leafletObject: t };
+        leafletObject: e.value
+      }), n.value = !0, g(() => o.emit("ready", e.value));
+    }), R(() => me(i)), { ready: n, leafletObject: e };
   },
   render() {
-    return G(this.ready, this.$slots);
+    return I(this.ready, this.$slots);
   }
-}), le = {
+}), ie = {
   ...ne,
   smoothFactor: {
     type: Number
@@ -1484,14 +1528,14 @@ const $t = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     required: !0,
     custom: !0
   }
-}, Ne = (e, o, t) => {
-  const { options: n, methods: s } = _e(
-    e,
+}, $e = (t, o, e) => {
+  const { options: n, methods: s } = je(
+    t,
     o,
-    t
+    e
   ), r = f(
-    e,
-    le,
+    t,
+    ie,
     n
   ), l = {
     ...s,
@@ -1506,19 +1550,19 @@ const $t = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     }
   };
   return { options: r, methods: l };
-}, kt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Dt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  polylineProps: le,
-  setupPolyline: Ne
+  polylineProps: ie,
+  setupPolyline: $e
 }, Symbol.toStringTag, { value: "Module" })), x = {
-  ...le
-}, $e = (e, o, t) => {
-  const { options: n, methods: s } = Ne(
-    e,
+  ...ie
+}, ke = (t, o, e) => {
+  const { options: n, methods: s } = $e(
+    t,
     o,
-    t
+    e
   ), r = f(
-    e,
+    t,
     x,
     n
   ), l = {
@@ -1528,98 +1572,98 @@ const $t = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     }
   };
   return { options: r, methods: l };
-}, Ut = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Et = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   polygonProps: x,
-  setupPolygon: $e
-}, Symbol.toStringTag, { value: "Module" })), co = S({
+  setupPolygon: ke
+}, Symbol.toStringTag, { value: "Module" })), mo = S({
   name: "LPolygon",
   props: x,
-  setup(e, o) {
-    const t = c(), n = c(!1), s = O(h), r = m(M), { options: l, methods: a } = $e(e, t, o);
+  setup(t, o) {
+    const e = c(), n = c(!1), s = O(h), r = y(M), { options: l, methods: a } = ke(t, e, o);
     return _(async () => {
-      const { polygon: i } = s ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(i(e.latLngs, l));
+      const { polygon: i } = s ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(i(t.latLngs, l));
       const { listeners: u } = T(o.attrs);
-      t.value.on(u), L(a, t.value, e), r({
-        ...e,
+      e.value.on(u), L(a, e.value, t), r({
+        ...t,
         ...a,
-        leafletObject: t.value
-      }), n.value = !0, g(() => o.emit("ready", t.value));
-    }), { ready: n, leafletObject: t };
+        leafletObject: e.value
+      }), n.value = !0, g(() => o.emit("ready", e.value));
+    }), { ready: n, leafletObject: e };
   },
   render() {
-    return G(this.ready, this.$slots);
+    return I(this.ready, this.$slots);
   }
-}), po = S({
+}), vo = S({
   name: "LPolyline",
-  props: le,
-  setup(e, o) {
-    const t = c(), n = c(!1), s = O(h), r = m(M), { options: l, methods: a } = Ne(e, t, o);
+  props: ie,
+  setup(t, o) {
+    const e = c(), n = c(!1), s = O(h), r = y(M), { options: l, methods: a } = $e(t, e, o);
     return _(async () => {
-      const { polyline: i } = s ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(
-        i(e.latLngs, l)
+      const { polyline: i } = s ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(
+        i(t.latLngs, l)
       );
       const { listeners: u } = T(o.attrs);
-      t.value.on(u), L(a, t.value, e), r({
-        ...e,
+      e.value.on(u), L(a, e.value, t), r({
+        ...t,
         ...a,
-        leafletObject: t.value
-      }), n.value = !0, g(() => o.emit("ready", t.value));
-    }), { ready: n, leafletObject: t };
+        leafletObject: e.value
+      }), n.value = !0, g(() => o.emit("ready", e.value));
+    }), { ready: n, leafletObject: e };
   },
   render() {
-    return G(this.ready, this.$slots);
+    return I(this.ready, this.$slots);
   }
-}), ke = {
+}), Ue = {
   ...W,
   content: {
     type: String,
     default: null
   }
-}, Ue = (e, o) => {
-  const { options: t, methods: n } = J(e), s = {
+}, De = (t, o) => {
+  const { options: e, methods: n } = J(t), s = {
     ...n,
     setContent(r) {
       o.value && r !== null && r !== void 0 && o.value.setContent(r);
     }
   };
-  return { options: t, methods: s };
-}, De = (e) => e.default ? U("div", { ref: "root" }, e.default()) : null, Dt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  return { options: e, methods: s };
+}, Ee = (t) => t.default ? U("div", { ref: "root" }, t.default()) : null, Ft = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  popperProps: ke,
-  render: De,
-  setupPopper: Ue
-}, Symbol.toStringTag, { value: "Module" })), lt = {
-  ...ke,
+  popperProps: Ue,
+  render: Ee,
+  setupPopper: De
+}, Symbol.toStringTag, { value: "Module" })), it = {
+  ...Ue,
   latLng: {
     type: [Object, Array],
     default: () => []
   }
-}, it = (e, o) => {
-  const { options: t, methods: n } = Ue(e, o);
-  return { options: t, methods: n };
-}, Ft = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, ut = (t, o) => {
+  const { options: e, methods: n } = De(t, o);
+  return { options: e, methods: n };
+}, Zt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  popupProps: lt,
-  setupPopup: it
-}, Symbol.toStringTag, { value: "Module" })), yo = S({
+  popupProps: it,
+  setupPopup: ut
+}, Symbol.toStringTag, { value: "Module" })), bo = S({
   name: "LPopup",
-  props: lt,
-  setup(e, o) {
-    const t = c(), n = c(null), s = O(h), r = m(ge), l = m(he), { options: a, methods: i } = it(e, t);
+  props: it,
+  setup(t, o) {
+    const e = c(), n = c(null), s = O(h), r = y(Le), l = y(Oe), { options: a, methods: i } = ut(t, e);
     return _(async () => {
-      const { popup: u } = s ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(u(a)), e.latLng !== void 0 && t.value.setLatLng(e.latLng), L(i, t.value, e);
+      const { popup: u } = s ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(u(a)), t.latLng !== void 0 && e.value.setLatLng(t.latLng), L(i, e.value, t);
       const { listeners: d } = T(o.attrs);
-      t.value.on(d), t.value.setContent(e.content || n.value || ""), r(t.value), g(() => o.emit("ready", t.value));
+      e.value.on(d), e.value.setContent(t.content || n.value || ""), r(e.value), g(() => o.emit("ready", e.value));
     }), R(() => {
       l();
-    }), { root: n, leafletObject: t };
+    }), { root: n, leafletObject: e };
   },
   render() {
-    return De(this.$slots);
+    return Ee(this.$slots);
   }
 }), Fe = {
   ...x,
@@ -1631,13 +1675,13 @@ const $t = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     type: Object,
     custom: !0
   }
-}, ut = (e, o, t) => {
-  const { options: n, methods: s } = $e(
-    e,
+}, ct = (t, o, e) => {
+  const { options: n, methods: s } = ke(
+    t,
     o,
-    t
+    e
   ), r = f(
-    e,
+    t,
     Fe,
     n
   ), l = {
@@ -1650,30 +1694,30 @@ const $t = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     }
   };
   return { options: r, methods: l };
-}, Zt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Ht = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   rectangleProps: Fe,
-  setupRectangle: ut
-}, Symbol.toStringTag, { value: "Module" })), mo = S({
+  setupRectangle: ct
+}, Symbol.toStringTag, { value: "Module" })), fo = S({
   name: "LRectangle",
   props: Fe,
-  setup(e, o) {
-    const t = c(), n = c(!1), s = O(h), r = m(M), { options: l, methods: a } = ut(e, t, o);
+  setup(t, o) {
+    const e = c(), n = c(!1), s = O(h), r = y(M), { options: l, methods: a } = ct(t, e, o);
     return _(async () => {
-      const { rectangle: i, latLngBounds: u } = s ? b.L : await import("leaflet/dist/leaflet-src.esm"), d = e.bounds ? u(e.bounds) : u(e.latLngs || []);
-      t.value = j(i(d, l));
-      const { listeners: y } = T(o.attrs);
-      t.value.on(y), L(a, t.value, e), r({
-        ...e,
+      const { rectangle: i, latLngBounds: u } = s ? v.L : await import("leaflet/dist/leaflet-src.esm"), d = t.bounds ? u(t.bounds) : u(t.latLngs || []);
+      e.value = j(i(d, l));
+      const { listeners: m } = T(o.attrs);
+      e.value.on(m), L(a, e.value, t), r({
+        ...t,
         ...a,
-        leafletObject: t.value
-      }), n.value = !0, g(() => o.emit("ready", t.value));
-    }), { ready: n, leafletObject: t };
+        leafletObject: e.value
+      }), n.value = !0, g(() => o.emit("ready", e.value));
+    }), { ready: n, leafletObject: e };
   },
   render() {
-    return G(this.ready, this.$slots);
+    return I(this.ready, this.$slots);
   }
-}), ie = {
+}), ue = {
   ...ae,
   tms: {
     type: Boolean,
@@ -1681,7 +1725,7 @@ const $t = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   },
   subdomains: {
     type: [String, Array],
-    validator: (e) => typeof e == "string" ? !0 : Array.isArray(e) ? e.every((o) => typeof o == "string") : !1
+    validator: (t) => typeof t == "string" ? !0 : Array.isArray(t) ? t.every((o) => typeof o == "string") : !1
   },
   detectRetina: {
     type: Boolean,
@@ -1692,65 +1736,65 @@ const $t = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     required: !0,
     custom: !0
   }
-}, Ze = (e, o, t) => {
-  const { options: n, methods: s } = Ae(e, o, t), r = f(
-    e,
-    ie,
+}, Ze = (t, o, e) => {
+  const { options: n, methods: s } = Ae(t, o, e), r = f(
+    t,
+    ue,
     n
   ), l = {
     ...s
   };
   return { options: r, methods: l };
-}, Et = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, Wt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   setupTileLayer: Ze,
-  tileLayerProps: ie
-}, Symbol.toStringTag, { value: "Module" })), vo = S({
-  props: ie,
-  setup(e, o) {
-    const t = c(), n = O(h), s = m(M), { options: r, methods: l } = Ze(e, t, o);
+  tileLayerProps: ue
+}, Symbol.toStringTag, { value: "Module" })), go = S({
+  props: ue,
+  setup(t, o) {
+    const e = c(), n = O(h), s = y(M), { options: r, methods: l } = Ze(t, e, o);
     return _(async () => {
-      const { tileLayer: a } = n ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(a(e.url, r));
+      const { tileLayer: a } = n ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(a(t.url, r));
       const { listeners: i } = T(o.attrs);
-      t.value.on(i), L(l, t.value, e), s({
-        ...e,
+      e.value.on(i), L(l, e.value, t), s({
+        ...t,
         ...l,
-        leafletObject: t.value
-      }), g(() => o.emit("ready", t.value));
-    }), { leafletObject: t };
+        leafletObject: e.value
+      }), g(() => o.emit("ready", e.value));
+    }), { leafletObject: e };
   },
   render() {
     return null;
   }
-}), ct = {
-  ...ke
-}, dt = (e, o) => {
-  const { options: t, methods: n } = Ue(e, o), s = m(Oe);
+}), dt = {
+  ...Ue
+}, pt = (t, o) => {
+  const { options: e, methods: n } = De(t, o), s = y(Se);
   return R(() => {
     s();
-  }), { options: t, methods: n };
-}, Ht = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  }), { options: e, methods: n };
+}, Jt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  setupTooltip: dt,
-  tooltipProps: ct
-}, Symbol.toStringTag, { value: "Module" })), bo = S({
+  setupTooltip: pt,
+  tooltipProps: dt
+}, Symbol.toStringTag, { value: "Module" })), Lo = S({
   name: "LTooltip",
-  props: ct,
-  setup(e, o) {
-    const t = c(), n = c(null), s = O(h), r = m(Le), { options: l, methods: a } = dt(e, t);
+  props: dt,
+  setup(t, o) {
+    const e = c(), n = c(null), s = O(h), r = y(he), { options: l, methods: a } = pt(t, e);
     return _(async () => {
-      const { tooltip: i } = s ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(i(l)), L(a, t.value, e);
+      const { tooltip: i } = s ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(i(l)), L(a, e.value, t);
       const { listeners: u } = T(o.attrs);
-      t.value.on(u), t.value.setContent(e.content || n.value || ""), r(t.value), g(() => o.emit("ready", t.value));
-    }), { root: n, leafletObject: t };
+      e.value.on(u), e.value.setContent(t.content || n.value || ""), r(e.value), g(() => o.emit("ready", e.value));
+    }), { root: n, leafletObject: e };
   },
   render() {
-    return De(this.$slots);
+    return Ee(this.$slots);
   }
-}), Ee = {
-  ...ie,
+}), He = {
+  ...ue,
   layers: {
     type: String,
     required: !0
@@ -1775,99 +1819,100 @@ const $t = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     type: Boolean,
     default: void 0
   }
-}, pt = (e, o, t) => {
-  const { options: n, methods: s } = Ze(e, o, t);
+}, yt = (t, o, e) => {
+  const { options: n, methods: s } = Ze(t, o, e);
   return {
     options: f(
-      e,
-      Ee,
+      t,
+      He,
       n
     ),
     methods: {
       ...s
     }
   };
-}, Wt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, qt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  setupWMSTileLayer: pt,
-  wmsTileLayerProps: Ee
-}, Symbol.toStringTag, { value: "Module" })), fo = S({
-  props: Ee,
-  setup(e, o) {
-    const t = c(), n = O(h), s = m(M), { options: r, methods: l } = pt(
-      e,
+  setupWMSTileLayer: yt,
+  wmsTileLayerProps: He
+}, Symbol.toStringTag, { value: "Module" })), ho = S({
+  props: He,
+  setup(t, o) {
+    const e = c(), n = O(h), s = y(M), { options: r, methods: l } = yt(
       t,
+      e,
       o
     );
     return _(async () => {
-      const { tileLayer: a } = n ? b.L : await import("leaflet/dist/leaflet-src.esm");
-      t.value = j(
-        a.wms(e.url, r)
+      const { tileLayer: a } = n ? v.L : await import("leaflet/dist/leaflet-src.esm");
+      e.value = j(
+        a.wms(t.url, r)
       );
       const { listeners: i } = T(o.attrs);
-      t.value.on(i), L(l, t.value, e), s({
-        ...e,
+      e.value.on(i), L(l, e.value, t), s({
+        ...t,
         ...l,
-        leafletObject: t.value
-      }), g(() => o.emit("ready", t.value));
-    }), { leafletObject: t };
+        leafletObject: e.value
+      }), g(() => o.emit("ready", e.value));
+    }), { leafletObject: e };
   },
   render() {
     return null;
   }
-}), go = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}), Oo = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  Circle: Ot,
-  CircleMarker: ht,
-  Component: bt,
-  Control: St,
-  ControlAttribution: _t,
-  ControlLayers: jt,
-  ControlScale: Pt,
-  ControlZoom: Ct,
-  FeatureGroup: Mt,
-  GeoJSON: Bt,
-  GridLayer: wt,
+  Circle: St,
+  CircleMarker: Ot,
+  Component: ft,
+  Control: _t,
+  ControlAttribution: jt,
+  ControlLayers: Pt,
+  ControlScale: Ct,
+  ControlZoom: Tt,
+  FeatureGroup: Bt,
+  GeoJSON: wt,
+  GridLayer: Gt,
   Icon: It,
   ImageOverlay: At,
-  InteractiveLayer: gt,
-  Layer: ft,
-  LayerGroup: Tt,
-  Marker: $t,
-  Path: Lt,
-  Polygon: Ut,
-  Polyline: kt,
-  Popper: Dt,
-  Popup: Ft,
-  Rectangle: Zt,
-  TileLayer: Et,
-  Tooltip: Ht,
-  WmsTileLayer: Wt
+  InteractiveLayer: Lt,
+  Layer: gt,
+  LayerGroup: Mt,
+  Marker: Ut,
+  Path: ht,
+  Polygon: Et,
+  Polyline: Dt,
+  Popper: Ft,
+  Popup: Zt,
+  Rectangle: Ht,
+  TileLayer: Wt,
+  Tooltip: Jt,
+  WmsTileLayer: qt
 }, Symbol.toStringTag, { value: "Module" }));
 export {
-  go as Functions,
-  Qt as InjectionKeys,
-  Xt as LCircle,
-  Yt as LCircleMarker,
-  Vt as LControl,
-  xt as LControlAttribution,
-  Rt as LControlLayers,
-  eo as LControlScale,
-  to as LControlZoom,
-  oo as LFeatureGroup,
-  no as LGeoJson,
-  ro as LGridLayer,
-  so as LIcon,
-  ao as LImageOverlay,
-  lo as LLayerGroup,
-  io as LMap,
-  uo as LMarker,
-  co as LPolygon,
-  po as LPolyline,
-  yo as LPopup,
-  mo as LRectangle,
-  vo as LTileLayer,
-  bo as LTooltip,
-  fo as LWmsTileLayer,
-  Kt as Utilities
+  Oo as Functions,
+  Xt as InjectionKeys,
+  Yt as LCircle,
+  xt as LCircleMarker,
+  Rt as LControl,
+  eo as LControlAttribution,
+  to as LControlLayers,
+  oo as LControlScale,
+  no as LControlZoom,
+  ro as LFeatureGroup,
+  so as LGeoJson,
+  ao as LGridLayer,
+  lo as LIcon,
+  io as LImageOverlay,
+  co as LLayerGroup,
+  po as LMap,
+  yo as LMarker,
+  mo as LPolygon,
+  vo as LPolyline,
+  bo as LPopup,
+  fo as LRectangle,
+  uo as LSVGOverlay,
+  go as LTileLayer,
+  Lo as LTooltip,
+  ho as LWmsTileLayer,
+  Qt as Utilities
 };
