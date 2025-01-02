@@ -20,6 +20,10 @@ export const arrowheadsProps = {
     required: true,
     custom: true,
   },
+  arrowheadsOptions: {
+    type: Object as PropType<Record<string, any>>,
+    default: () => ({}),
+  },
 } as const;
 
 export const setupArrowheads = (props, leafletRef, context) => {
@@ -46,7 +50,7 @@ export const setupArrowheads = (props, leafletRef, context) => {
     addLatLng(latLng) {
       leafletRef.value.addLatLng(latLng);
     },
-    setArrowheads(options) {
+    setArrowheadsOptions(options) {
       leafletRef.value.arrowheads(options);
     },
   };

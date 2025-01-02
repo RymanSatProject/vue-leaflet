@@ -2429,6 +2429,10 @@ const Ze = {
     type: Array,
     required: !0,
     custom: !0
+  },
+  arrowheadsOptions: {
+    type: Object,
+    default: () => ({})
   }
 }, Lt = (o, t, e) => {
   const { options: n, methods: r } = ce(
@@ -2450,7 +2454,7 @@ const Ze = {
     addLatLng(a) {
       t.value.addLatLng(a);
     },
-    setArrowheads(a) {
+    setArrowheadsOptions(a) {
       t.value.arrowheads(a);
     }
   };
@@ -2470,12 +2474,12 @@ const Ze = {
         l(o.latLngs, i)
       );
       const { listeners: u } = z(t.attrs);
-      e.value.on(u), C(a, e.value, o), s({
+      e.value.on(u), e.value.arrowheads(o.arrowheadsOptions), C(a, e.value, o), s({
         ...o,
         ...a,
         leafletObject: e.value
       }), n.value = !0, M(() => t.emit("ready", e.value));
-    }), { ready: n, leafletObject: e, setArrowheads: a.setArrowheads };
+    }), { ready: n, leafletObject: e };
   },
   render() {
     return x(this.ready, this.$slots);

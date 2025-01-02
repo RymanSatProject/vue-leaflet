@@ -15,6 +15,13 @@ declare const _sfc_main: import("vue").DefineComponent<{
         readonly required: true;
         readonly custom: true;
     };
+    readonly arrowheadsOptions: {
+        /**
+         * Arrowheads component, used to add arrowheads to a polyline
+         */
+        readonly type: import("vue").PropType<Record<string, any>>;
+        readonly default: () => {};
+    };
     readonly stroke: {
         readonly type: BooleanConstructor;
         readonly default: undefined;
@@ -94,7 +101,6 @@ declare const _sfc_main: import("vue").DefineComponent<{
 }, {
     ready: import("vue").Ref<boolean>;
     leafletObject: import("vue").Ref<L.Polyline<import("geojson").LineString | import("geojson").MultiLineString, any> | undefined>;
-    setArrowheads: (options: any) => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     readonly smoothFactor: {
         readonly type: NumberConstructor;
@@ -107,6 +113,13 @@ declare const _sfc_main: import("vue").DefineComponent<{
         readonly type: import("vue").PropType<L.LatLngExpression[]>;
         readonly required: true;
         readonly custom: true;
+    };
+    readonly arrowheadsOptions: {
+        /**
+         * Arrowheads component, used to add arrowheads to a polyline
+         */
+        readonly type: import("vue").PropType<Record<string, any>>;
+        readonly default: () => {};
     };
     readonly stroke: {
         readonly type: BooleanConstructor;
@@ -187,6 +200,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
 }>>, {
     readonly fill: boolean;
     readonly noClip: boolean;
+    readonly arrowheadsOptions: Record<string, any>;
     readonly stroke: boolean;
     readonly interactive: boolean;
     readonly bubblingMouseEvents: boolean;

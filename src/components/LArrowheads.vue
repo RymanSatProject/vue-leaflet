@@ -53,6 +53,9 @@ export default defineComponent({
       const { listeners } = remapEvents(context.attrs);
       leafletObject.value.on(listeners);
 
+      // Add the arrowheads to the polyline
+      leafletObject.value.arrowheads(props.arrowheadsOptions);
+
       propsBinder(methods, leafletObject.value, props);
 
       addLayer({
@@ -64,7 +67,7 @@ export default defineComponent({
       ready.value = true;
       nextTick(() => context.emit("ready", leafletObject.value));
     });
-    return { ready, leafletObject, setArrowheads: methods.setArrowheads };
+    return { ready, leafletObject };
   },
   render() {
     return render(this.ready, this.$slots);
