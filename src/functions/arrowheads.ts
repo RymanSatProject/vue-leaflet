@@ -46,6 +46,9 @@ export const setupArrowheads = (props, leafletRef, context) => {
     addLatLng(latLng) {
       leafletRef.value.addLatLng(latLng);
     },
+    setArrowheads(options) {
+      leafletRef.value.arrowheads(options);
+    },
   };
 
   return { options, methods };

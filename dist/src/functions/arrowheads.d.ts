@@ -93,6 +93,7 @@ export declare const setupArrowheads: (props: any, leafletRef: any, context: any
         setSmoothFactor(smoothFactor: any): void;
         setNoClip(noClip: any): void;
         addLatLng(latLng: any): void;
+        setArrowheads(options: any): void;
         setStroke(stroke: any): void;
         setColor(color: any): void;
         setWeight(weight: any): void;

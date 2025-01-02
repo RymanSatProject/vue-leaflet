@@ -2449,6 +2449,9 @@ const Ze = {
     },
     addLatLng(a) {
       t.value.addLatLng(a);
+    },
+    setArrowheads(a) {
+      t.value.arrowheads(a);
     }
   };
   return { options: s, methods: i };
@@ -2467,16 +2470,12 @@ const Ze = {
         l(o.latLngs, i)
       );
       const { listeners: u } = z(t.attrs);
-      e.value.on(u), e.value.arrowheads({
-        size: "20px",
-        fill: !0,
-        frequency: "10000m"
-      }), C(a, e.value, o), s({
+      e.value.on(u), C(a, e.value, o), s({
         ...o,
         ...a,
         leafletObject: e.value
       }), n.value = !0, M(() => t.emit("ready", e.value));
-    }), { ready: n, leafletObject: e };
+    }), { ready: n, leafletObject: e, setArrowheads: a.setArrowheads };
   },
   render() {
     return x(this.ready, this.$slots);
