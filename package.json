@@ -30,6 +30,7 @@
     "docs:build": "vitepress build docs"
   },
   "dependencies": {
+    "leaflet-arrowheads": "^1.4.0",
     "vue": "^3.2.25"
   },
   "peerDependencies": {

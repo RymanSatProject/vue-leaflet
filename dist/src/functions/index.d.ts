@@ -18,6 +18,7 @@ export * as Marker from "./marker";
 export * as Path from "./path";
 export * as Polygon from "./polygon";
 export * as Polyline from "./polyline";
+export * as Arrowheads from "./arrowheads";
 export * as Popper from "./popper";
 export * as Popup from "./popup";
 export * as Rectangle from "./rectangle";

@@ -56,6 +56,10 @@ const routes = [
   },
   { path: "/polygon", component: () => import("./views/PolygonDemo.vue") },
   { path: "/polyline", component: () => import("./views/PolylineDemo.vue") },
+  {
+    path: "/arrowheads",
+    component: () => import("./views/ArrowheadsDemo.vue"),
+  },
   { path: "/popups", component: () => import("./views/PopupsDemo.vue") },
   { path: "/rectangle", component: () => import("./views/RectangleDemo.vue") },
   { path: "/tooltips", component: () => import("./views/TooltipsDemo.vue") },
