@@ -19,7 +19,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         /**
          * Arrowheads component, used to add arrowheads to a polyline
          */
-        readonly type: import("vue").PropType<Record<string, any>>;
+        readonly type: import("vue").PropType<import('../functions/arrowheads').ArrowheadOptions>;
         readonly default: () => {};
     };
     readonly stroke: {
@@ -118,7 +118,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         /**
          * Arrowheads component, used to add arrowheads to a polyline
          */
-        readonly type: import("vue").PropType<Record<string, any>>;
+        readonly type: import("vue").PropType<import('../functions/arrowheads').ArrowheadOptions>;
         readonly default: () => {};
     };
     readonly stroke: {
@@ -200,7 +200,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
 }>>, {
     readonly fill: boolean;
     readonly noClip: boolean;
-    readonly arrowheadsOptions: Record<string, any>;
+    readonly arrowheadsOptions: import('../functions/arrowheads').ArrowheadOptions;
     readonly stroke: boolean;
     readonly interactive: boolean;
     readonly bubblingMouseEvents: boolean;
