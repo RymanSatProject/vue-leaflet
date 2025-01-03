@@ -13,6 +13,7 @@
         [47.241487, -1.190568],
         [47.234787, -1.358337],
       ]"
+      :arrowheads-options="{ size: '20px', fill: true, frequency: '10000m' }"
       color="green"
     />
   </l-map>
